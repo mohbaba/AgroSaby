@@ -2,6 +2,6 @@ from django.urls import path , include
 from core_app.views import homePageView
 
 urlpatterns = [
-    path('', homePageView , name = 'home')
+    path('', homePageView , name = 'products')
     
 ]
