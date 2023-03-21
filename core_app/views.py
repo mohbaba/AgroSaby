@@ -19,3 +19,18 @@ def contact_page(request):
 
 def shop_page(request):
     return render(request, 'shop.html')
+
+def account_page(request):
+    return render(request , 'my-account.html')
+
+def cart(request):
+    return render(request , 'cart.html')
+
+def checkout_page(request):
+    return render(request , 'checkout.html')
+
+def wishlist(request):
+    return render (request , 'wishlist.html')
+
+def shop_detail(request):
+    return render(request, 'shop-detail.html')
