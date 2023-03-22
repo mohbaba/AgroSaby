@@ -14,7 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link rel="stylesheet" href="{% static 'assets/css/icons.css' %}">
     <link rel="stylesheet" href="{% static 'assets/css/uikit.css' %}">
-    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/style1.css' %}">
     <link rel="stylesheet" href="{% static 'assets/css/tailwind.css' %}">
 
 </head>
@@ -52,9 +52,9 @@
                 <!--<p class="mb-2 text-black text-lg"> Register to manage your account </p>-->
                 
                 <div>
-                {% for message in messages %}
+                <!-- {% for message in messages %}
                 <h5>{{message}}</h5>
-                {% endfor %}
+                {% endfor %} -->
                 </div>
                 <style>
                     h5{
@@ -68,7 +68,7 @@
 
 
                 <form action="" method="POST">
-                    {% csrf_token %}
+                    <!-- {% csrf_token %} -->
                     <!--<div class="flex lg:flex-row flex-col lg:space-x-2">
                         <input type="text" placeholder="First Name"  class="bg-gray-200 mb-2 shadow-none  dark:bg-gray-800" style="border: 1px solid #d3d5d8 !important;">
                         <input type="text" placeholder="Last Name" class="bg-gray-200 mb-2 shadow-none  dark:bg-gray-800" style="border: 1px solid #d3d5d8 !important;">
