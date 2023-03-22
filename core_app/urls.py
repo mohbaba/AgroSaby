@@ -12,6 +12,7 @@ urlpatterns = [
     path('checkout', checkout_page , name = 'checkout'),
     path('wishlist', wishlist , name= ' wishlist'),
     path('shop_detail', shop_detail , name= ' shop_detail'),
+    path('sign_up', sign_up, name = 'sign_up')
     
     
     

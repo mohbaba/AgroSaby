@@ -34,3 +34,6 @@ def wishlist(request):
 
 def shop_detail(request):
     return render(request, 'shop-detail.html')
+
+def sign_up(request):
+    return render(request , 'signup.html')
