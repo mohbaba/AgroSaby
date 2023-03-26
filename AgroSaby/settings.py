@@ -37,7 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    "phonenumber_field",
     'core_app',
+    'accounts',
     'user_profiles',
     'products',
     'vendor_reg'
