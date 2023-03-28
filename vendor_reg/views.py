@@ -4,4 +4,9 @@ from django.http import HttpResponse
 
 
 def tester(request):
-    return render(request, 'shop.html')
+    return render(request, 'buyer_reg.html')
+
+
+def about_us(request):
+    
+    return render(request , 'about.html')

@@ -3,5 +3,6 @@ from vendor_reg.views import *
 
 
 urlpatterns = [
-    path('', tester , name='vendor_reg'),
+    path('', tester , name='registration'),
+    path('about', about_us , name = 'about'),
 ]
