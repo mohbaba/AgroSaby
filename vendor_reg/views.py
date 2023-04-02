@@ -19,7 +19,8 @@ def tester(request):
         if password1 == password2:
             pass
         else:
-            
+            messages.info(request, 'Passwords do not match!')
+            return redirect('buyer_reg.html')
         
         
         
