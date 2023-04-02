@@ -20,7 +20,7 @@
         <br>
       <form class="row g-3" method="POST" action="" >
         {% csrf_token %}
-        
+
           <div class="col-md-6">
             <input type="text" name="firstname" class="form-control" placeholder="First name" aria-label="First name">
           </div>
@@ -70,8 +70,8 @@
         <div class="col-md-4">
           <div class="mb-3">
             <label for="selectExample" class="form-label">User Type:</label>
-            <select class="form-select" id="selectExample">
-              <option selected>Select an option</option>
+            <select class="form-select" id="selectExample" name = 'acc_type'>
+              <option  selected>Select an option</option>
               <option value="1">Buyer</option>
               <option value="2">Seller</option>
             </select>
