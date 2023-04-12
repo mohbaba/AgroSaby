@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User, auth
+from vendor_reg.models import *
 from django.contrib import messages
 from django.http import HttpResponse
 # Create your views here.
@@ -17,7 +18,12 @@ def tester(request):
         acc_type = request['acc_type']
         
         if password1 == password2:
-            pass
+            if User.objects.filter(email = email).exists():
+                messages.info(request, 'Email Taken')
+                return redirect('buyer_reg.html')
+            else:
+                user = User.objects.create_user(email=email, password=password1)
+                # acc = Accounts.objects
         else:
             messages.info(request, 'Passwords do not match!')
             return redirect('buyer_reg.html')
