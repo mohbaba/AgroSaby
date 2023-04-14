@@ -30,6 +30,11 @@ def account(request):
                 user.save()
                 acc = Accounts(firstname = firstname, lastname = lastname, phone_number = phone_no, user_type = acc_type)
                 acc.save()
+                
+                #log user in and direct to settings page
+                
+                user_login = auth.authenticate(username=username, password=password1)
+                auth.login(request,user_login)
         else:
             messages.info(request, 'Passwords do not match!')
             return redirect('buyer_reg.html')

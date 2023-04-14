@@ -18,6 +18,20 @@
         
         <br>
         <br>
+
+      <div>
+        {% for message in messages  %}
+        
+        {% if message == 'Passwords do not match!' %}
+          
+        {% endif %}
+          
+        <h5>{message}</h5>
+      {% endfor %}
+      </div>
+      
+        
+
       <form class="row g-3" method="POST" action="" >
         {% csrf_token %}
 
