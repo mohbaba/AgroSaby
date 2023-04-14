@@ -9,14 +9,15 @@ from django.http import HttpResponse
 def account(request):
     
     if request.method == 'POST':
-        firstname = request.GET.get('firstname')
-        username = request.GET.get('username')
-        lastname = request.GET.get('lastname')
-        email = request.GET.get('email')
-        password1 = request.GET.get('passsword')
-        password2 = request.GET.get('password2')
-        phone_no = request.GET.get('phone')
-        acc_type = request.GET.get('acc_type')
+        firstname = request.POST.get('firstname')
+        username = request.POST.get('username')
+        lastname = request.POST.get('lastname')
+        email = request.POST.get('email')
+        password1 = request.POST.get('password')
+        password2 = request.POST.get('password2')
+        phone_no = request.POST.get('phone')
+        acc_type = request.POST.get('acc_type')
+
         
         if password1 == password2:
             if User.objects.filter(email = email).exists():
@@ -25,7 +26,7 @@ def account(request):
             elif User.objects.filter(username = username).exists():
                 messages.info(request, 'Username taken try another one ')
             else:
-                user = User.objects.create_user(email=email, password=password1)
+                user = User.objects.create_user(username = username,email=email, password=password1)
                 user.save()
                 acc = Accounts(firstname = firstname, lastname = lastname, phone_number = phone_no, user_type = acc_type)
                 acc.save()
