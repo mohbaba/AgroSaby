@@ -22,9 +22,25 @@ def account(request):
         if password1 == password2:
             if User.objects.filter(email = email).exists():
                 messages.info(request, 'Email Taken')
-                return redirect('buyer_reg.html')
+                context = {
+                    'email': email,
+                    'username': username,
+                    'firstname': firstname,
+                    'lastname': lastname,
+                    'phone': phone_no,
+                    'acc_type': acc_type,
+                }
+                return redirect('buyer_reg.html', context)
             elif User.objects.filter(username = username).exists():
                 messages.info(request, 'Username taken try another one ')
+                context = {
+                    'email': email,
+                    'username': username,
+                    'firstname': firstname,
+                    'lastname': lastname,
+                    'phone': phone_no,
+                    'acc_type': acc_type,
+                }
             else:
                 user = User.objects.create_user(username = username,email=email, password=password1)
                 user.save()
@@ -35,9 +51,28 @@ def account(request):
                 
                 # user_login = auth.authenticate(username=username, password=password1)
                 # auth.login(request,user_login)
+                
+                
+                context = {
+                    'email': email,
+                    'username': username,
+                    'firstname': firstname,
+                    'lastname': lastname,
+                    'phone': phone_no,
+                    'acc_type': acc_type,
+                }
+                return render(request, 'buyer_reg.html', context)
         else:
             messages.info(request, 'Passwords do not match!')
-            return redirect('buyer_reg.html')
+            context = {
+                    'email': email,
+                    'username': username,
+                    'firstname': firstname,
+                    'lastname': lastname,
+                    'phone': phone_no,
+                    'acc_type': acc_type,
+                }
+            return redirect('buyer_reg.html',context)
         
         
         
