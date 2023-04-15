@@ -1,64 +1,93 @@
 {% load static %}
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href= "{% static 'assets/css/bootstrap.min.css '%}">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="{% static 'assets/css/bootstrap.min.css '%}" />
     <!-- Site CSS -->
-    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/style.css' %}" />
     <!-- Responsive CSS -->
-    <link rel="stylesheet" href="{% static 'assets/css/responsive.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/responsive.css' %}" />
     <!-- Custom CSS -->
-    <link rel="stylesheet" href="{% static 'assets/css/custom.css' %}">
+    <link rel="stylesheet" href="{% static 'assets/css/custom.css' %}" />
     <title>Document</title>
-</head>
-<body>
-    <div class="container" >
-        
-        <br>
-        <br>
+  </head>
+  <body>
+    <div class="container">
+      <br />
+      <br />
 
       <div>
-        {% for message in messages  %}
-        
-        {% if message == 'Passwords do not match!' %}
-          
-        {% endif %}
-          
-        <h5>{message}</h5>
-      {% endfor %}
+        {% for message in messages %}
+        <div class="alert alert-danger" role="alert">
+          <h5>{{ message }}</h5>
+        </div>
+        {% endfor %}
       </div>
-      
-        
 
-      <form class="row g-3" method="POST" action="" >
+      <form class="row g-3" method="POST" action="">
         {% csrf_token %}
 
         <div class="col-md-6">
-          <input type="text" name="username" class="form-control" placeholder="Username" aria-label="Username">
-        </div>  
+          <input
+            type="text"
+            name="username"
+            class="form-control"
+            placeholder="Username"
+            aria-label="Username"
+          />
+        </div>
         <div class="col-md-6">
-            <input type="text" name="firstname" class="form-control" placeholder="First name" aria-label="First name">
-          </div>
-          <!-- <div class="w-100"></div> -->
-          <div class="col-md-6">
-            <input type="text" name="lastname" class="form-control" placeholder="Last name" aria-label="Last name">
-          </div>
-          <div class="w-100"></div>
+          <input
+            type="text"
+            name="firstname"
+            class="form-control"
+            placeholder="First name"
+            aria-label="First name"
+          />
+        </div>
+        <!-- <div class="w-100"></div> -->
+        <div class="col-md-6">
+          <input
+            type="text"
+            name="lastname"
+            class="form-control"
+            placeholder="Last name"
+            aria-label="Last name"
+          />
+        </div>
+        <div class="w-100"></div>
         <div class="col-md-6">
           <label for="inputEmail4" class="form-label">Email</label>
-          <input type="email" name="email" class="form-control" id="inputEmail4">
+          <input
+            type="email"
+            name="email"
+            class="form-control"
+            id="inputEmail4"
+          />
         </div>
         <div class="w-100"></div>
         <div class="col-md-6">
           <label for="inputPassword4" class="form-label">Password</label>
-          <input type="password" name="password" class="form-control" id="inputPassword4">
+          <input
+            type="password"
+            name="password"
+            class="form-control"
+            id="inputPassword4"
+          />
         </div>
         <div class="w-100"></div>
         <div class="col-md-6">
-          <label for="inputPassword4" class="form-label">Confirm Password</label>
-          <input type="password" name = "password2"class="form-control" id="inputPassword4">
+          <label for="inputPassword4" class="form-label"
+            >Confirm Password</label
+          >
+          <input
+            type="password"
+            name="password2"
+            class="form-control"
+            id="inputPassword4"
+          />
         </div>
         <div class="w-100"></div>
         <div class="col-md-4">
@@ -66,9 +95,15 @@
           <div class="input-group">
             <select class="form-select" name="prefix" id="prefix">
               <option value="+234">+234 (NGN)</option>
-
             </select>
-            <input type="tel" class="form-control" id="phone" name="phone" pattern="[0-9]{10}" required>
+            <input
+              type="tel"
+              class="form-control"
+              id="phone"
+              name="phone"
+              pattern="[0-9]{10}"
+              required
+            />
           </div>
         </div>
 
@@ -83,12 +118,11 @@
           </div>
         </div>                                                                                                                -->
 
-        
         <div class="col-md-4">
           <div class="mb-3">
             <label for="selectExample" class="form-label">User Type:</label>
-            <select class="form-select" id="selectExample" name = 'acc_type'>
-              <option  selected>Select an option</option>
+            <select class="form-select" id="selectExample" name="acc_type">
+              <option selected>Select an option</option>
               <option value="1">Buyer</option>
               <option value="2">Seller</option>
             </select>
@@ -98,10 +132,11 @@
           <button type="submit" class="btn btn-primary">Sign in</button>
         </div>
       </form>
-
     </div>
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css">
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/css/bootstrap.min.css"
+    />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.1.3/js/bootstrap.bundle.min.js"></script>
-
-</body>
+  </body>
 </html>

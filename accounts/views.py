@@ -33,8 +33,8 @@ def account(request):
                 
                 #log user in and direct to settings page
                 
-                user_login = auth.authenticate(username=username, password=password1)
-                auth.login(request,user_login)
+                # user_login = auth.authenticate(username=username, password=password1)
+                # auth.login(request,user_login)
         else:
             messages.info(request, 'Passwords do not match!')
             return redirect('buyer_reg.html')
