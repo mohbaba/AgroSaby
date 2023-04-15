@@ -36,6 +36,7 @@
             class="form-control"
             placeholder="Username"
             aria-label="Username"
+            value="{{username}}"
           />
         </div>
         <div class="col-md-6">
@@ -45,6 +46,8 @@
             class="form-control"
             placeholder="First name"
             aria-label="First name"
+            value="{{firstname}}"
+            required
           />
         </div>
         <!-- <div class="w-100"></div> -->
@@ -55,6 +58,8 @@
             class="form-control"
             placeholder="Last name"
             aria-label="Last name"
+            value="{{lastname}}"
+            required
           />
         </div>
         <div class="w-100"></div>
@@ -65,6 +70,8 @@
             name="email"
             class="form-control"
             id="inputEmail4"
+            value="{{email}}"
+            required
           />
         </div>
         <div class="w-100"></div>
@@ -75,6 +82,7 @@
             name="password"
             class="form-control"
             id="inputPassword4"
+            required
           />
         </div>
         <div class="w-100"></div>
@@ -87,6 +95,7 @@
             name="password2"
             class="form-control"
             id="inputPassword4"
+            required
           />
         </div>
         <div class="w-100"></div>
@@ -102,6 +111,7 @@
               id="phone"
               name="phone"
               pattern="[0-9]{10}"
+              value="{{phone}}"
               required
             />
           </div>
@@ -121,10 +131,11 @@
         <div class="col-md-4">
           <div class="mb-3">
             <label for="selectExample" class="form-label">User Type:</label>
-            <select class="form-select" id="selectExample" name="acc_type">
+            <select class="form-select" id="selectExample" name="acc_type" required>
               <option selected>Select an option</option>
               <option value="1">Buyer</option>
               <option value="2">Seller</option>
+              
             </select>
           </div>
         </div>
