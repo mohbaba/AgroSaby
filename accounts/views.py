@@ -43,7 +43,7 @@ def account(request):
                 acc = Accounts(firstname = firstname, lastname = lastname, phone_number = phone_no, user_type = acc_type, user =user)
                 acc.save()
                 
-                #log user in and direct to settings page
+                #log user in and direct to home page
                 
                 # user_login = auth.authenticate(username=username, password=password1)
                 # auth.login(request,user_login)

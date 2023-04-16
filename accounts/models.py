@@ -20,6 +20,12 @@ class Accounts(models.Model):
         choices = USER_CHOICE,
         default = '1',
     )
+    created_at = models.DateTimeField(auto_now_add=True)
+    updated_at = models.DateTimeField(auto_now=True)
+    
+    class Meta:
+        verbose_name_plural = "Accounts"
+        verbose_name = "Account"
     
     def __str__(self) :
         return self.user.username
