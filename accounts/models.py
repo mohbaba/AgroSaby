@@ -15,13 +15,14 @@ class Accounts(models.Model):
     user = models.ForeignKey(User, on_delete= models.CASCADE)
     firstname = models.CharField(max_length= 30)
     lastname = models.CharField(max_length= 20)
+    email = models.EmailField(max_length=100)
     phone_number = PhoneNumberField(blank=True)
     user_type = models.CharField(
         max_length = 20,
         choices = USER_CHOICE,
         default = '1',
     )
-    created_at = models.DateTimeField(auto_now_add=True)
+    created_at = models.DateTimeField(default=datetime.now)
     updated_at = models.DateTimeField(auto_now=True)
     
     class Meta:

@@ -39,8 +39,9 @@ def account(request):
                 # return redirect('buyer_reg.html', context)
                 return render(request, 'buyer_reg.html', context)
             else:
-                user = User.objects.create_user(username = username,email=email, password=password1)
-                acc = Accounts(firstname = firstname, lastname = lastname, phone_number = phone_no, user_type = acc_type, user =user)
+                # This creates the user acccounts and saves them to the database
+                user = User.objects.create_user(username = username,email=email, password=password1,first_name = firstname, last_name = lastname)
+                acc = Accounts(firstname = firstname, lastname = lastname, phone_number = phone_no, user_type = acc_type, user =user,email=email)
                 acc.save()
                 
                 #log user in and direct to home page
@@ -59,6 +60,6 @@ def account(request):
         return render(request, 'buyer_reg.html', context)
 
 
-def about_us(request):
+def sign_in(request):
     
-    return render(request , 'about.html')
+    return render(request , 'sign_in.html')
