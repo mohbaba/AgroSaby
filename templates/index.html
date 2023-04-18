@@ -66,10 +66,11 @@
                     
                     {% if user.is_authenticated %}
                     <div class="login-box">
-						<select id="basic" class="selectpicker show-tick form-control" data-placeholder="Sign In">
+						<!-- <select  class="selectpicker  form-control" >
 							<option><li><a href="logout"> Logout</a></li></option>
 							
-						</select>
+						</select> -->
+                        <p><a class="btn hvr-hover" href="accounts/logout">Logout</a></p>
 					</div>
 
                     {% else %}
