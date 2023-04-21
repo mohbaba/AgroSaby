@@ -1,6 +1,7 @@
 from django.shortcuts import render, redirect
 from django.contrib.auth.models import User, auth
 from django.contrib.auth import authenticate , login , logout
+from django.contrib.auth.decorators import login_required
 from core_app.urls import *
 from accounts.models import *
 from django.contrib import messages
@@ -47,8 +48,9 @@ def account(request):
                 
                 #log user in and direct to home page
                 
-                # user_login = auth.authenticate(username=username, password=password1)
-                # auth.login(request,user_login)
+                user_login = authenticate(username=username, password=password1)
+                login(request,user_login)
+                
                 return redirect('home')
         else:
             messages.info(request, 'Passwords do not match!')
@@ -79,7 +81,7 @@ def sign_in(request):
     else:
         return render(request , 'sign_in.html')
     
-
+@login_required(login_url= 'sign_in')
 def log_user_out(request):
     logout(request)
     return redirect('sign_in')
