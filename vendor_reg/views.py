@@ -2,38 +2,34 @@ from django.shortcuts import render, redirect
 from django.contrib.auth.models import User, auth
 from vendor_reg.models import *
 from django.contrib import messages
+from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
 # Create your views here.
 
 
-# def tester(request):
+
+# @login_required(login_url = 'sign_in')
+# def type_checker(request):
+#     user = request.user
     
-#     if request.method == 'POST':
-#         firstname = request['firstname']
-#         lastname = request['lastname']
-#         email = request['email']
-#         password1 = request['passsword']
-#         password2 = request['password2']
-#         phone_no = request['phone']
-#         acc_type = request['acc_type']
-        
-#         if password1 == password2:
-#             if User.objects.filter(email = email).exists():
-#                 messages.info(request, 'Email Taken')
-#                 return redirect('buyer_reg.html')
-#             else:
-#                 user = User.objects.create_user(email=email, password=password1)
-#                 acc = Accounts()
+#     try:
+#         account = Accounts.objects.get(user=user)
+#         tru = account.get_user_type_display()
+#         print (tru)
+#         if account.get_user_type_display() == 'Seller':
+#             # perform action for seller
+#             is_seller = True
+#             print('works!!!')
 #         else:
-#             messages.info(request, 'Passwords do not match!')
-#             return redirect('buyer_reg.html')
+#             # perform action for buyer
+#             is_seller = False
+#             print('not works!!!')
         
-        
-        
-#     else:
-#         return render(request, 'buyer_reg.html')
-
-
-# def about_us(request):
+#     except Accounts.DoesNotExist:
+#         # handle case where account doesn't exist for user
+#         pass
     
-#     return render(request , 'about.html')
+#     context = {
+#         'is_seller': is_seller,
+#     }
+#     return render(request, 'index.html',context)

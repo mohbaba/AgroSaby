@@ -25,11 +25,12 @@ urlpatterns = [
     path('accounts/',include('accounts.urls')),
     path('user_profile/', include('user_profiles.urls')),
     path('products/', include('products.urls')),
-    path('reg/', include('vendor_reg.urls'))
+    path('admin_/', include('vendor_reg.urls'))
 ]
 
 urlpatterns = urlpatterns + static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
+
 if settings.DEBUG:
     urlpatterns += static(settings.MEDIA_URL, document_root=settings.MEDIA_ROOT)
-if settings.DEBUG:
-    urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)
+# if settings.DEBUG:
+#     urlpatterns += static(settings.STATIC_URL, document_root=settings.STATIC_ROOT)

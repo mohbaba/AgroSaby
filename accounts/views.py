@@ -3,6 +3,7 @@ from django.contrib.auth.models import User, auth
 from django.contrib.auth import authenticate , login , logout
 from django.contrib.auth.decorators import login_required
 from core_app.urls import *
+from vendor_reg.urls import *
 from accounts.models import *
 from django.contrib import messages
 from django.http import HttpResponse
@@ -74,7 +75,9 @@ def sign_in(request):
             login(request, user)
             messages.success(request, 'Success!')
             
-            return redirect('home')
+            return redirect('/')
+            # return redirect('/admin_/tester')
+        
         else:
             messages.error(request, 'User not found! Create new account')
             return redirect('sign_in')
@@ -85,3 +88,30 @@ def sign_in(request):
 def log_user_out(request):
     logout(request)
     return redirect('sign_in')
+
+
+# @login_required(login_url = 'sign_in')
+# def type_checker(request):
+#     user = request.user
+    
+#     try:
+#         account = Accounts.objects.get(user=user)
+#         tru = account.get_user_type_display()
+#         print (tru)
+#         if account.get_user_type_display() == 'Seller':
+#             # perform action for seller
+#             is_seller = True
+#             print('works!!!')
+#         else:
+#             # perform action for buyer
+#             is_seller = False
+#             print('not works!!!')
+        
+#     except Accounts.DoesNotExist:
+#         # handle case where account doesn't exist for user
+#         pass
+    
+#     context = {
+#         'is_seller': is_seller,
+#     }
+#     return render(request, 'index.html',context)

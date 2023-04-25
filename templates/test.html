@@ -1,0 +1,19 @@
+<h5>HEY!!</h5>
+
+
+{% if user.is_authenticated  %}
+
+{% if is_seller %}
+    
+
+    
+    <h5>USER IS SELLER</h5>
+
+    
+    {% else %}
+        <h5>USER IS BUYER</h5>
+    {% endif %}
+    {% else %}
+    <h5>NEITHER!!!!</h5>
+{% endif %}
+    
