@@ -12,7 +12,7 @@ class Product(models.Model):
     description = models.TextField()
     price = models.DecimalField(max_digits=8, decimal_places=2)
     quantity = models.IntegerField()
-    image = models.ImageField(upload_to='products')
+    # image = models.ImageField(upload_to='products')
     seller = models.ForeignKey(User, on_delete=models.CASCADE)
     img = models.ImageField(upload_to = 'images',default = 'BlankPic.jpg' )
     created_at = models.DateTimeField(default=datetime.now)

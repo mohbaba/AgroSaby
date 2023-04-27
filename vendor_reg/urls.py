@@ -3,5 +3,8 @@ from vendor_reg.views import *
 
 
 urlpatterns = [
-    path('',seller_dashboard,name = 'sell_admin')
+    path('',seller_dashboard,name = 'sell_admin'),
+    path('product_add',add_product,name = 'product_add'),
+    
+    
 ]

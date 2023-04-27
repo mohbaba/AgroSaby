@@ -11,3 +11,10 @@ from django.http import HttpResponse
 @login_required(login_url='sign_in')
 def seller_dashboard(request):
     return render(request, 'dashboard.html')
+
+
+@login_required(login_url='sign_in')
+def add_product(request):
+    if request.method == 'POST':
+        product_name = request.POST.get('product_name')
+    return render(request, 'add_product.html')
