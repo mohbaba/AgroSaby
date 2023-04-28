@@ -16,5 +16,18 @@ def seller_dashboard(request):
 @login_required(login_url='sign_in')
 def add_product(request):
     if request.method == 'POST':
+        user = request.user.username
         product_name = request.POST.get('product_name')
-    return render(request, 'add_product.html')
+        description = request.POST.get('description')
+        price = request.POST.get('price')
+        quantity = request.POST.get('quantity')
+        image = request.FILES.get('image')
+        
+        product = Product(name=product_name, description=description, price=price, quantity = quantity, img = image, user = user)
+        product.save()
+        
+        messages.success(request, 'Product Successfully Added!')
+        
+        return redirect('/seller_admin_')
+    else:    
+        return render(request, 'add_product.html')
