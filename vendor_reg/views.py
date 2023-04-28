@@ -23,11 +23,22 @@ def add_product(request):
         quantity = request.POST.get('quantity')
         image = request.FILES.get('image')
         
+        # Adds the info to the product database
         product = Product(name=product_name, description=description, price=price, quantity = quantity, img = image, user = user)
         product.save()
+        # products = Product.objects.get(id= 1)
+        context = {
+            'user':user,
+            'product_name':product_name,
+            'description':description,
+            'price':price,
+            'quantity': quantity
+        }
         
         messages.success(request, 'Product Successfully Added!')
         
         return redirect('/seller_admin_')
+    
+    
     else:    
         return render(request, 'add_product.html')

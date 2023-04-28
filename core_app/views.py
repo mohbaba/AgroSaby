@@ -6,9 +6,10 @@ from accounts.models import *
 
 login_required(login_url='sign_in')
 def index(request):
-    user = request.user
+    
     
     try:
+        user = request.user.id
         account = Accounts.objects.get(user=user)
         tru = account.get_user_type_display()
         print (tru)
@@ -16,18 +17,23 @@ def index(request):
             # perform action for seller
             is_seller = True
             print('works!!!')
+            context = {
+        'is_seller': is_seller,
+    }
         else:
             # perform action for buyer
             is_seller = False
             print('not works!!!')
+            context = {
+        'is_seller': is_seller,
+    }
         
     except Accounts.DoesNotExist:
         # handle case where account doesn't exist for user
-        pass
+        
+        return render(request, 'index.html')
     
-    context = {
-        'is_seller': is_seller,
-    }
+    
     return render(request, 'index.html',context)
 
 def about_us(request):
