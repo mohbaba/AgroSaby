@@ -26,14 +26,7 @@ def add_product(request):
         # Adds the info to the product database
         product = Product(name=product_name, description=description, price=price, quantity = quantity, img = image, user = user)
         product.save()
-        # products = Product.objects.get(id= 1)
-        context = {
-            'user':user,
-            'product_name':product_name,
-            'description':description,
-            'price':price,
-            'quantity': quantity
-        }
+        
         
         messages.success(request, 'Product Successfully Added!')
         
@@ -42,3 +35,8 @@ def add_product(request):
     
     else:    
         return render(request, 'add_product.html')
+    
+    
+# def product_view():
+    
+    

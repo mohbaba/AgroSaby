@@ -2,12 +2,14 @@ from django.db import models
 from accounts.models import *
 from django.contrib.auth import get_user_model
 from datetime import datetime
+import uuid
 from phonenumber_field.modelfields import PhoneNumberField
 
 
 # Create your models here.
 
 class Product(models.Model):
+    # id = models.UUIDField(primary_key = True, default= uuid.uuid4)
     name = models.CharField(max_length=255)
     description = models.TextField()
     price = models.DecimalField(max_digits=8, decimal_places=2)
