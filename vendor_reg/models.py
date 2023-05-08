@@ -11,7 +11,7 @@ from phonenumber_field.modelfields import PhoneNumberField
 class Product(models.Model):
     # id = models.UUIDField(primary_key = True, default= uuid.uuid4)
     name = models.CharField(max_length=255)
-    description = models.TextField()
+    description = models.TextField(max_length= 50)
     price = models.DecimalField(max_digits=8, decimal_places=2)
     quantity = models.PositiveIntegerField()
     # image = models.ImageField(upload_to='products')

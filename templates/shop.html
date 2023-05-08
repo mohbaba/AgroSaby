@@ -94,19 +94,20 @@
                         </div>
 
                         
-                        {% for product  in  products %}
+                        
                         
                         <div class="product-categorie-box">
                             <div class="tab-content">
                                 <div role="tabpanel" class="tab-pane fade show active" id="grid-view">
                                     <div class="row">
+                                        {% for product  in  products reversed %}
                                         <div class="col-sm-6 col-md-6 col-lg-4 col-xl-4">
                                             <div class="products-single fix">
                                                 <div class="box-img-hover">
                                                     <div class="type-lb">
                                                         <p class="sale">Sale</p>
                                                     </div>
-                                                    <img src=" {% static 'assets/images/img-pro-01.jpg' %} " class="img-fluid" alt="Image">
+                                                    <img src=" {{product.img.url}} " class="rounded img-fluid" alt="Image">
                                                     <div class="mask-icon">
                                                         <ul>
                                                             <li><a href="#" data-toggle="tooltip" data-placement="right" title="View"><i class="fas fa-eye"></i></a></li>
@@ -119,11 +120,11 @@
                                                 <div class="why-text">
                                                     <h4>{{product.name}}</h4>
                                                     <h4>{{product.description}}</h4>
-                                                    <h5> {{product.price}}</h5>
+                                                    <h5>&#x20A6; {{product.price}}</h5>
                                                 </div>
                                             </div>
                                         </div>
-                                        
+                                        {% endfor %}
                                     </div>
                                 </div>
                                 <div role="tabpanel" class="tab-pane fade" id="list-view">
@@ -226,8 +227,8 @@
                                 </div>
                             </div>
                         </div>
+
                         
-                        {% endfor %}
                         
                     </div>
                 </div>

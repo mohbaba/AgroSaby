@@ -37,6 +37,11 @@ def add_product(request):
         return render(request, 'add_product.html')
     
     
-# def product_view():
+@login_required(login_url='sign_in')
+def seller_products(request):
+    user = request.user
+    products_list = Product.objects.filter(user = user)
+    context = {'products': products_list}
+    return render(request, 'seller_products.html',context)
     
     

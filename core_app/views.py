@@ -5,6 +5,7 @@ from accounts.models import *
 from vendor_reg.models import Product
 # Create your views here.
 
+
 def user_type_checker(request):
     try:
         user = request.user.id
