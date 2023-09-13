@@ -975,7 +975,11 @@ ul.cart-list > li.total > .btn:hover {
 .box-img-hover img {
   margin: 0 auto;
   text-align: center;
-  display: block;
+  display: inline-block;
+}
+.product-image {
+  width: 200px;
+  height: 150px;
 }
 .type-lb {
   position: absolute;
@@ -1005,6 +1009,14 @@ ul.cart-list > li.total > .btn:hover {
   font-size: 16px;
   font-weight: 700;
   padding-bottom: 15px;
+}
+
+.why-text h4:nth-child(2) {
+  white-space: nowrap; /* Prevent text from wrapping */
+  overflow: hidden; /* Hide any overflowing text */
+  text-overflow: ellipsis; /* Show an ellipsis (...) for overflow */
+  max-height: 2.4em; /* Adjust this value to limit to two lines */
+  line-height: 1.2em; /* Adjust line height for proper spacing */
 }
 .why-text h5 {
   font-size: 18px;
