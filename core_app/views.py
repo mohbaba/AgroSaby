@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect
+from django.shortcuts import render, redirect, get_object_or_404
 from django.http import HttpResponse
 from django.contrib.auth.decorators import login_required
 from accounts.models import *
@@ -52,8 +52,13 @@ def about_us(request):
     return render(request , 'about.html')
 
 
-def gallery_page(request):
-    return render (request, 'gallery.html')
+def gallery_page(request, product_id):
+     # Retrieve the product based on the product_id or handle errors if it doesn't exist
+    product = get_object_or_404(Product, id=product_id)
+
+    # Render the gallery template with the product details
+    return render(request, 'gallery.html', {'product': product})
+    
 
 def contact_page(request):
     return render(request, 'contact-us.html')

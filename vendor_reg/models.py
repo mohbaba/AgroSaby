@@ -3,7 +3,7 @@ from accounts.models import *
 from django.contrib.auth import get_user_model
 from datetime import datetime
 import uuid
-from phonenumber_field.modelfields import PhoneNumberField
+
 
 
 # Create your models here.
